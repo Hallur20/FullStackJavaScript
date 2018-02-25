@@ -1,6 +1,6 @@
 day1 exercises links:
 
-<a href="">hey</a>
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/magicCallback1.js">1) Using existing functions that takes a callback as an argument</a>
 # FullStackJavaScript 
 FullStackJS_P1_ExamQuestions
 
