@@ -1,4 +1,6 @@
-www.gooogle.com
+day1 exercises links:
+
+<a href="">hey</a>
 # FullStackJavaScript 
 FullStackJS_P1_ExamQuestions
 
