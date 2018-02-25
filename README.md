@@ -4,11 +4,11 @@ FullStackJS_P1_ExamQuestions
 
 Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
 1. Javascript er et OO scripting sprog der har til formål at lave dynamiske html sider på en web-browser.
-Java er et programmerings-sprog, der gør at du kan lave programmer det kan køre på din computer/browser, mens javascript kun kører på din browser.
-Du skal compile java-kode med f.eks commando-prompt for at f.eks kunne se et system.out.println("hello world") i cmd, med med javascript behøver du ikke compile.
-i javascript behøver man ikke at definerer hvad type en variabel er, eller hvad en metode skal returnere, men det skal man i java.
-Javascript kræver heller ikke at din kode bliver lavet i klasser, men det skal man i java.
-Javascript kører kun i én thread, mens i java kan man lave flere (typisk bruges der 4 threads i java fordi computerer nu om dage som regel har 4 kerner)
+2. Java er et programmerings-sprog, der gør at du kan lave programmer det kan køre på din computer/browser, mens javascript kun kører på din browser.
+3. Du skal compile java-kode med f.eks commando-prompt for at f.eks kunne se et system.out.println("hello world") i cmd, med med javascript behøver du ikke compile.
+4. i javascript behøver man ikke at definerer hvad type en variabel er, eller hvad en metode skal returnere, men det skal man i java.
+5. Javascript kræver heller ikke at din kode bliver lavet i klasser, men det skal man i java.
+6. Javascript kører kun i én thread, mens i java kan man lave flere (typisk bruges der 4 threads i java fordi computerer nu om dage som regel har 4 kerner)
 Explain the two strategies for improving JavaScript: ES6 (es2015) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node and in (many different) Browsers
 es2015
 arrow funktioner - en kortere syntax end den normale javascript-funktion, med arrow funktion behøver du ikke skrive function, og hvis det er samme linje behøver du heller ikke skrive return eller lave krølleparanteser. Man behøver heller ikke binde this i feks react når der bruges arrow funktioner
