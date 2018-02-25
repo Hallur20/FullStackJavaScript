@@ -41,9 +41,11 @@ Explain the purpose of “use strict” and also Linters, exemplified with ESLin
 
 Variable/function-Hoisting
 Variable hoisting:
+
     x = 5; // Assign 5 to x
     console.log(x);
     var x = 1;  // Declare x
+    
 Eksemplet her vil virke fordi at et assignment i javascript undersøger variabler nedenfor i koden, og så hejser den variablen op til toppen, sådan at den nye assignment kommer til at virke.
 function sup(){ return yo();}
 console.log(sup());
