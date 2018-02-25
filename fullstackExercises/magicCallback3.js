@@ -47,3 +47,6 @@ console.log(newArray);
 console.log(newArray2);
 console.log(names.myTest((name) => { return name + " lol"; }));
 console.log(names.myTest2((name) => { return name.length <= 3 }));
+
+
+

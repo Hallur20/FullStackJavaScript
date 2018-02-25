@@ -1,13 +1,14 @@
 {\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-{\colortbl ;\red255\green0\blue0;\red0\green176\blue80;}
+{\colortbl ;\red255\green0\blue0;\red0\green176\blue80;\red0\green0\blue0;}
 {\*\generator Riched20 10.0.16299}\viewkind4\uc1 
-\pard\sa200\sl276\slmult1\f0\fs22\lang56 NExplain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.\par
+\pard\sa200\sl276\slmult1\f0\fs22\lang56\par
+Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.\par
 Javascript er et OO scripting sprog der har til form\'e5l at lave dynamiske html sider p\'e5 en web-browser.\par
 \cf1 Java er et programmerings-sprog, der g\'f8r at du kan lave programmer det kan k\'f8re p\'e5 din computer/browser, mens javascript kun k\'f8rer p\'e5 din browser.\par
 Du skal compile java-kode med f.eks commando-prompt for at f.eks kunne se et system.out.println("hello world") i cmd, med med javascript beh\'f8ver du ikke compile.\par
 i javascript beh\'f8ver man ikke at definerer hvad type en variabel er, eller hvad en metode skal returnere, men det skal man i java.\par
 Javascript kr\'e6ver heller ikke at din kode bliver lavet i klasser, men det skal man i java.\par
-Javascript k\'f8rer kun i \'e9n thread, mens java kan man lave flere (typisk bruges der 4 threads i java fordi computerer nu om dage som regel har 4 kerner)\par
+Javascript k\'f8rer kun i \'e9n thread, mens i java kan man lave flere (typisk bruges der 4 threads i java fordi computerer nu om dage som regel har 4 kerner)\par
 \cf0 Explain the two strategies for improving JavaScript: ES6 (es2015) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node and in (many different) Browsers\par
 
 \pard\sa200\sl276\slmult1\qc\cf1 es2015\par
@@ -86,12 +87,160 @@ let p = new Person("Hallur", "vid Neyst");\par
 p.sayHelloFixSelf();\par
 p.sayHelloArrowFix();\par
 \cf0 Function Closures and the JavaScript Module Pattern\par
-Immediately-Invoked Function Expressions (IIFE)\par
+\cf1 Function closure generelt er udtryk for ting man kan g\'f8re indenfor funktionens eget scope.\cf0\par
+\cf1\'c9n funktion i javascript har mulighed for at g\'f8re brug af b\'e5de det lokale og globale omfang af variabler (kode nedenfor viser at funktionen tager imod en variabel fra det globale scope.\par
+\cf2 var a = 4; //variabel i det globale omfang\par
+(function myFunction() \{\par
+    var b = 5; //b er i det lokale omfang\par
+    console.log(a * a); //giver 16, g\'f8r brug af a fra det globale omfang\par
+\}()); //self-call\par
+\cf1 Javascript module pattern er almindeligt javascript-kode-m\'f8nster. Koden ovenover g\'f8r faktiskt brug af den fondumentale konstruktur hvori paranteserne rundt om funktionen g\'f8r s\'e5dan at funktionen g\'e5r fra at v\'e6re en deklaration til \'e9t funktions udtryk i stedet, der eksekverer sig selv.\cf2\par
+\cf0 Immediately-Invoked Function Expressions (IIFE)\par
+\cf1\'e9n javascript funktion der eksekveres s\'e5 snart den er defineret. \par
+\cf2 (function()\{\par
+    var hello = "hello world"\par
+    console.log(hello);\par
+\})();\par
+\cf1 der er paranteser rundt om funktionen for at forhindre adgang til variabler indeni IIFE functionen (s\'e5 hello variablen har ingen adgang ude i det globale scope). De 2 sidste paranteser er skyld i eksekveringen ligesom n\'e5r man normalt k\'f8rer en funktion.\cf0\par
+JavaScripts Prototype\par
+\cf1 Prototyper i javascript har at g\'f8re med feks map, filter reduce osv. Disse 3 er Array Prototyper som ogs\'e5 er standard javacript obects, og \'e9n array prototype er en predefineret function der tager et callback og g\'f8r noget med callback-regelen brugeren har defineret.\par
+For at lave din egen array prototype constructor kan du g\'f8re det p\'e5 den her m\'e5de:\par
+\cf2 Array.prototype.myUcase = function() \{\par
+    for (i = 0; i < this.length; i++) \{\par
+        this[i] = this[i].toUpperCase();\par
+    \}\par
+\};\par
 \par
-147JavaScripts Prototype\par
-User defined Callback Functions\par
-Explain the methods map, filter and reduce\par
-Provide examples of user defined reusable modules implemented in Node.js\par
+var a = ["a","b"]\par
+a.myUcase();\par
+console.log(a);\par
+\cf1 den her prototype tager this[i] (det originale string-array's index) og laver indexet til et stort bogstav. \'c9t andet prototype eksempel er ligesom i object orienteret programmering hvori feks \'e9n person klasse har en konstruktor, s\'e5 kan javascript g\'f8re det med \'e9n function (med stort bogstav til at starte fordi det er \'e9t object konstructor). Eksempel nedenfor:\par
+\cf2 function Person(first, last) \{\par
+    this.firstName = first;\par
+    this.lastName = last;\par
+\}\par
+var me = new Person("Hallur", "vi\'f0 Neyst");\par
+console.log(me);\par
+\cf0 User defined Callback Functions\par
+\cf1 En callback funktion er en funktion der s\'e6ttes ind i parametret af \'e9n anden funktion, der s\'e5 bruges i det lokale scope for den funktion.\cf0\par
+\cf2 function takeName(fName, lName, callback) \{\par
+    callback(fName, lName);\par
+\}\par
+function alertName(fName, lName)\{ alert(fName + " " + lName);\}\par
+takeName('hallur', 'vid neyst', alertName);\par
+\cf1 I dette eksempel tager takeName 2 strings og en callback funktion, callback funktionen (alertName) tager selv fName og lName i dets parameter. takeName eksekverer funktionen med fName og lName der resulterer i \'e9n javascript alarm med indholdet af fName og lName.\cf2\par
+\cf0 Explain the methods map, filter and reduce\par
+\cf1 map laver et nyt array ud fra et andet array, med den regel at bruger-callback metoden g\'f8r noget ved hvert element (ganger med 2 i eksemplet). Nedenst\'e5ende eksempel vil give [2,8,18,32].\par
+\cf2 var array = [1, 4, 9, 16];\par
+const map = array.map(x => x * 2);\par
+console.log(map);\par
+\cf1 filter lavet et nyt array ud fra et andet array, med den regel at bruger-callback metoden returnerer boolean ud fra en regel for hvert element, og hvis det giver false bliver det nuv\'e6rende element i arrayet slettet (element skal v\'e6re mindre end 10 i eksemplet). Nedenst\'e5ende eksempel vil give [1,4,9].\par
+\cf2 var array = [1, 4, 9, 16];\par
+const filter = array.filter(x => x < 10);\par
+console.log(filter);\par
+\cf1 reduce laver \'e9n string eller et tal ud fra et array, med den regel at bruger-callback metoden g\'f8r noget ved de forrige elementer og det nuv\'e6rende element (plusser de forrige med det nuv\'e6rende i eksemplet). Nedenst\'e5ende eksempel vil give 125.\cf2\par
+var array = [65, 44, 12, 4];\par
+const reduce = numbers.reduce((total, num) => total+num);\par
 \par
+\cf0 Provide examples of user defined reusable modules implemented in Node.js\par
+\cf1 modules i node js er ligesom libraries i javascript, det er nogle funktionaliter du kan g\'f8re brug af i din applikation. For at du som bruger skal kunne lave et reusable module kan du g\'f8re brug af exports for at g\'f8re dine properties og metoder synlige udenfor modul filen. Eksempel nedenfor:\par
+\cf2 exports.sayHello = function () \{\par
+    return "hello";\par
+\};\par
+\cf1 Lad os sige at filen hedder helloModule.js. Lav s\'e5 \'e9n anden javascript fil kald den demo_module.js med indholdet :\par
+\cf2 var http = require('http');\par
+var dt = require('./helloModule');\par
+\par
+http.createServer(function (req, res) \{\par
+    res.writeHead(200, \{'Content-Type': 'text/html'\});\par
+    res.write("from function: " + dt.sayHello());\par
+    res.end();\par
+\}).listen(8080);\par
+\cf1 k\'f8r filen ved at skrive: node demo_modules, og g\'e5 s\'e5 ind p\'e5 localhost:8080 for at se den.\par
+\cf3 Provide examples and explain the es2015 features: let, arrow functions, this, rest parameters, de-structuring assignments, maps/sets etc.\par
+\cf1 let\cf3\par
+\cf2 let x = 1;\par
+if (x === 1) \{\par
+  let x = 2; // x findes ikke i det lokale scope s\'e5 vi kan lave en ny lokal x variabel\par
+  console.log(x); //giver 2\par
+\}\par
+console.log(x); //giver 1 fordi let s\'e6tter variablen til kun at kunne \'e6ndre sig i det lokale scope.\par
+\cf1 arrow funktions\par
+\cf2 function sayHello1()\{\par
+    return "hello";\par
+\} //gode gammeldags funktion\par
+sayHello2=()=>"hello"; /*fylder mindre, og g\'f8r det samme, med arrow funktion beh\'f8ves der ikke skrives function, og hvis det er samme linje beh\'f8ver vi heller ikke curley brackes og return.*/\par
+\cf1 this\par
+\cf2 var a = 5;\par
+var b = 5;\par
+console.log(a+b); //giver 10. This i javascript har et globalt scope.\par
+\cf1 rest parameters\par
+\cf2 function mapThis(...theArgs) \{ //dette er et rest parameter, det tager et ubestemt antal numre, i dette tilf\'e6lde s\'e5 mange numre man har lyst til.\par
+    return theArgs.map((num) => \{\par
+      return num*2;\par
+    \});\par
+  \}\par
+  function mapThis2(...[a,b,c])\{ //dette er et rest parameter med op til 3 numre...\par
+      return [a,b,c].map((num=>\{\par
+          return num*2;\par
+      \}));\par
+  \}\par
+  console.log(mapThis(1, 2, 3,4,5)); //giver [2,4,6,8,10]\par
+  console.log(mapThis2(1,2,3,4,5)); //giver [2,4,6]\par
+\cf1 de-structuring assignments\par
+\cf2 var strings = ['one', 'two', 'three', "try and remove this"];\par
+var [one, ...rest] = strings;\par
+[one] = ["one has been changed"];\par
+[...rest] = ["two changed", "three changed"];\par
+strings = [one, ...rest];\par
+console.log(strings);\par
+/*som ses p\'e5 koden bygger vi om p\'e5 arrayet, vi definerer one som det f\'f8rste element,\par
+og ...rest definerer erstatning af hvad der var i forvejen af resten af stringsene*/\cf1\par
+maps/sets \par
+\cf2 const set = new Set([1,1, "hey", true]);\par
+console.log(set); /* giver Set\{1,hey,true\}. Grunden til den ignorerer det andet et tal\par
+er fordi i set skal ingen v\'e6rdier gentage sig.\par
+*/\par
+const map = new Map([[1,'hey'],[2,'yo']]);\par
+console.log(map.get(1)); /*\par
+lidt ligesom hashmap holder map en n\'f8gle og en tilh\'f8rende v\'e6rdi til den n\'f8gle\par
+for hvert element, resultatet skulle gerne give -> hey.\par
+*/\par
+\cf0 Explain and demonstrate how es2015 supports modules (import and export) similar to what is offered by NodeJS.\par
+\cf1 export = opretter js modul til at exportere funktioner eller andet fra modulet s\'e5 det kan blive brugt af andre applikationer der kan importere det.\par
+import = importerer modulet til din applikation.\par
+//------ myFunc.js ------\par
+export default function hey() \{  return "hey"\};\par
+\par
+//------ main1.js ------\par
+import myFunc from 'myFunc'; //export default g\'f8r at vi selv kan navngive det vi importerer\par
+myFunc(); /* i node js skriver man exports.function = function()\{\} i \'e9n fil og require'module' i den anden. */\par
+\cf0 Provide an example of ES6 inheritance and reflect over the differences between Inheritance in Java and in ES6.\par
+\cf2 class Vehicle \{\par
+  constructor (name, type) \{\par
+    this.name = name;\par
+    this.type = type;\par
+  \}\par
+  getName () \{\par
+    return this.name;\par
+  \}\par
+  getType () \{\par
+    return this.type;\par
+  \}\par
+\}\par
+class Car extends Vehicle \{\par
+  constructor (name) \{\par
+    super(name, 'car');\par
+  \}\par
+  getName () \{\par
+    return 'It is a car: ' + super.getName();\par
+  \}\par
+\} let car = new Car('Toyota'); /*konstructoren i Car g\'f8r brug af super som s\'e6tter navn og biltype p\'e5 superklasse konstrukteren (Vehicle)\line */\par
+console.log(car.getName());  //henter getName fra superklassen GetVehicle\par
+/* det ligner rigtig meget inheritance i java, forskellen er dog at super bliver ikke brugt lige meget i java n\'e5r der er tale om inheritance, fordi at  v\'e6rdierne vil v\'e6re default i java, og ikke i javsacript?, konstrukteren i dette tilf\'e6lde beh\'f8ver heller ikke have samme navn som klassen i javascript, andet end det kan jeg ikke se den store forskel. */\par
+\cf0\par
+Provide examples with es6, running in a browser, using Babel and Webpack\par
+\par
+\cf3\par
 }
  
