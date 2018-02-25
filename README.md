@@ -257,38 +257,41 @@ maps/sets
     */
 
 Explain and demonstrate how es2015 supports modules (import and export) similar to what is offered by NodeJS.
-export = opretter js modul til at exportere funktioner eller andet fra modulet så det kan blive brugt af andre applikationer der kan importere det.
-import = importerer modulet til din applikation.
-//------ myFunc.js ------
-export default function hey() {  return "hey"};
+1. export = opretter js modul til at exportere funktioner eller andet fra modulet så det kan blive brugt af andre applikationer der kan importere det.
+2. import = importerer modulet til din applikation.
 
-//------ main1.js ------
-import myFunc from 'myFunc'; //export default gør at vi selv kan navngive det vi importerer
-myFunc(); /* i node js skriver man exports.function = function(){} i én fil og require'module' i den anden. */
+    //------ myFunc.js ------
+    export default function hey() {  return "hey"};
+
+    //------ main1.js ------
+    import myFunc from 'myFunc'; //export default gør at vi selv kan navngive det vi importerer
+    myFunc(); /* i node js skriver man exports.function = function(){} i én fil og require'module' i den anden. */
+
 Provide an example of ES6 inheritance and reflect over the differences between Inheritance in Java and in ES6.
-class Vehicle {
-  constructor (name, type) {
-    this.name = name;
-    this.type = type;
-  }
-  getName () {
-    return this.name;
-  }
-  getType () {
-    return this.type;
-  }
-}
-class Car extends Vehicle {
-  constructor (name) {
-    super(name, 'car');
-  }
-  getName () {
-    return 'It is a car: ' + super.getName();
-  }
-} let car = new Car('Toyota'); /*konstructoren i Car gør brug af super som sætter navn og biltype på superklasse konstrukteren (Vehicle)
-*/
-console.log(car.getName());  //henter getName fra superklassen GetVehicle
-/* det ligner rigtig meget inheritance i java, forskellen er dog at super bliver ikke brugt lige meget i java når der er tale om inheritance, fordi at  værdierne vil være default i java, og ikke i javsacript?, konstrukteren i dette tilfælde behøver heller ikke have samme navn som klassen i javascript, andet end det kan jeg ikke se den store forskel. */
+
+    class Vehicle {
+    constructor (name, type) {
+     this.name = name;
+     this.type = type;
+     }
+     getName () {
+     return this.name;
+    }
+    getType () {
+     return this.type;
+    }
+    }
+    class Car extends Vehicle {
+     constructor (name) {
+     super(name, 'car');
+    }
+    getName () {
+      return 'It is a car: ' + super.getName();
+     }
+    } let car = new Car('Toyota'); /*konstructoren i Car gør brug af super som sætter navn og biltype på superklasse konstrukteren  (Vehicle)
+    */
+    console.log(car.getName());  //henter getName fra superklassen GetVehicle
+    /* det ligner rigtig meget inheritance i java, forskellen er dog at super bliver ikke brugt lige meget i java når der er tale om        inheritance, fordi at  værdierne vil være default i java, og ikke i javsacript?, konstrukteren i dette tilfælde behøver heller ikke     have samme navn som klassen i javascript, andet end det kan jeg ikke se den store forskel. */
 
 Provide examples with es6, running in a browser, using Babel and Webpack
 
