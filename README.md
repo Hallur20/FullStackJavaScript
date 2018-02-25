@@ -12,10 +12,12 @@ Explain differences between Java and JavaScript. You should include both topics 
 
 Explain the two strategies for improving JavaScript: ES6 (es2015) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node and in (many different) Browsers
 es2015
-arrow funktioner - en kortere syntax end den normale javascript-funktion, med arrow funktion behøver du ikke skrive function, og hvis det er samme linje behøver du heller ikke skrive return eller lave krølleparanteser. Man behøver heller ikke binde this i feks react når der bruges arrow funktioner
-klasser - gør det muligt at ligesom i java at gøre brug af constructors, inheritance, extend osv, komponenter i react gør brug af klasser ved at classen extender React.component.
+1. arrow funktioner - en kortere syntax end den normale javascript-funktion, med arrow funktion behøver du ikke skrive function, og hvis det er samme linje behøver du heller ikke skrive return eller lave krølleparanteser. Man behøver heller ikke binde this i feks react når der bruges arrow funktioner
+2. klasser - gør det muligt at ligesom i java at gøre brug af constructors, inheritance, extend osv, komponenter i react gør brug af klasser ved at classen extender React.component.
+
 typescript
-Typescript er en udvidelse af javascript, og  giver mulighed for at angive typer i koden og lave interfaces og moduler.
+1. Typescript er en udvidelse af javascript, og  giver mulighed for at angive typer i koden og lave interfaces og moduler.
+
 es2015/typescript bruges på 2 måder:
 1. browseren hvor et script tag i en html fil med et source for javascript filen sættes nederst i body tag, hvilket vil gøre at man kan se resultatet på browseren (chrome, firefox, edge osv)
 2. Node hvor blandt andre mulighed du kan se resultaterne fra console.log vil printes ud på kommandoprompt vinduet, du skal bare have node.js installeret på computeren.
