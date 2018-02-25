@@ -46,33 +46,42 @@ Variable hoisting:
     console.log(x);
     var x = 1;  // Declare x
     
-Eksemplet her vil virke fordi at et assignment i javascript undersøger variabler nedenfor i koden, og så hejser den variablen op til toppen, sådan at den nye assignment kommer til at virke.
-function sup(){ return yo();}
-console.log(sup());
-function yo(){ return 10;}
-Eksemplet her vil så også virke fordi igen undersøges der nedenfor om noget funktion kaldet for yo eksisterer, og så hejser den funktionen op til toppen, sådan at funktion sup kan returnere 10 fra yo funktionen.
+1. Eksemplet her vil virke fordi at et assignment i javascript undersøger variabler nedenfor i koden, og så hejser den variablen op til toppen, sådan at den nye assignment kommer til at virke.
+
+    function sup(){ return yo();}
+    console.log(sup());
+    function yo(){ return 10;}
+
+1. Eksemplet her vil så også virke fordi igen undersøges der nedenfor om noget funktion kaldet for yo eksisterer, og så hejser den funktionen op til toppen, sådan at funktion sup kan returnere 10 fra yo funktionen.
+
 this in JavaScript and how it differs from what we know from Java/.net.
 Simpelt eksempel på this:
-var a = 5;
-function b(){ return 6; }
-console.log(this.a);
-console.log(this.b());
-Her er this en genvej til a variablen og b funktionen, men man kunne også have skrevet console.log(a) og console.log(b()). I javascript har this et globalt omfangt så når man ikke er på den globale omgang men i en funktion vil this ikke virke. eksempel nedenunder. (a vil stadig være 5).
-let a = 5;
-(function(){
-this.a = 10;
-})();
-console.log(a);
-men i java/.net har this et omfang for metoder og variabler der ikke er statiske. eksmpel (b skulle gerne være 10):
-package thisdemo;
 
+    var a = 5;
+    function b(){ return 6; }
+    console.log(this.a);
+    console.log(this.b());
+
+Her er this en genvej til a variablen og b funktionen, men man kunne også have skrevet console.log(a) og console.log(b()). I javascript har this et globalt omfangt så når man ikke er på den globale omgang men i en funktion vil this ikke virke. eksempel nedenunder. (a vil stadig være 5).
+
+    let a = 5;
+    (function(){
+    this.a = 10;
+    })();
+    console.log(a);
+    
+men i java/.net har this et omfang for metoder og variabler der ikke er statiske. eksmpel (b skulle gerne være 10):
+
+package thisdemo;
     static int a = 5;
     int b = this.a + 5;
     public static void main(String[] args) {
         ThisDemo td = new ThisDemo();
         System.out.println(td.b);}
     public int b() {return this.b;}}
+    
 arrow funktioner løser alle problemer med this hvis feks et object med en konstructor fra en klasse bliver sendt ned i en funktion giver undefined (fordi assigment ikke er globalt), hvilket før var et problem i javascript fordi det hørte dårligt sammen med OO programmering som i java, men en midlertidlig løsning dengang var at sige const self = this (dette er en bid kode fra en af timerne).
+
 class Person{
     constructor(private fName:string,private lName:string){
         this.fName = fName;
@@ -92,6 +101,7 @@ sayHelloArrowFix(){
 let p = new Person("Hallur", "vid Neyst");
 p.sayHelloFixSelf();
 p.sayHelloArrowFix();
+
 Function Closures and the JavaScript Module Pattern
 Function closure generelt er udtryk for ting man kan gøre indenfor funktionens eget scope.
 Én funktion i javascript har mulighed for at gøre brug af både det lokale og globale omfang af variabler (kode nedenfor viser at funktionen tager imod en variabel fra det globale scope.
