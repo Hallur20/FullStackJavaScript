@@ -2,7 +2,7 @@
 FullStackJS_P1_ExamQuestions
 
 
-*Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
+*.Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
 1. Javascript er et OO scripting sprog der har til formål at lave dynamiske html sider på en web-browser.
 2. Java er et programmerings-sprog, der gør at du kan lave programmer det kan køre på din computer/browser, mens javascript kun kører på din browser.
 3. Du skal compile java-kode med f.eks commando-prompt for at f.eks kunne se et system.out.println("hello world") i cmd, med med javascript behøver du ikke compile.
