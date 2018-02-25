@@ -159,30 +159,35 @@ User defined Callback Functions
 
 Explain the methods map, filter and reduce
 1. map laver et nyt array ud fra et andet array, med den regel at bruger-callback metoden gør noget ved hvert element (ganger med 2 i eksemplet). Nedenstående eksempel vil give [2,8,18,32].
+-
 
     var array = [1, 4, 9, 16];
     const map = array.map(x => x * 2);
     console.log(map);
 
 2. filter lavet et nyt array ud fra et andet array, med den regel at bruger-callback metoden returnerer boolean ud fra en regel for hvert element, og hvis det giver false bliver det nuværende element i arrayet slettet (element skal være mindre end 10 i eksemplet). Nedenstående eksempel vil give [1,4,9].
+-
 
     var array = [1, 4, 9, 16];
     const filter = array.filter(x => x < 10);
     console.log(filter);
 
 3. reduce laver én string eller et tal ud fra et array, med den regel at bruger-callback metoden gør noget ved de forrige elementer og det nuværende element (plusser de forrige med det nuværende i eksemplet). Nedenstående eksempel vil give 125.
+-
 
     var array = [65, 44, 12, 4];
     const reduce = numbers.reduce((total, num) => total+num);
 
 Provide examples of user defined reusable modules implemented in Node.js
 1. modules i node js er ligesom libraries i javascript, det er nogle funktionaliter du kan gøre brug af i din applikation. For at du som bruger skal kunne lave et reusable module kan du gøre brug af exports for at gøre dine properties og metoder synlige udenfor modul filen. Eksempel nedenfor:
+-
 
     exports.sayHello = function () {
       return "hello";
     };
 
 2. Lad os sige at filen hedder helloModule.js. Lav så én anden javascript fil kald den demo_module.js med indholdet :
+-
 
     var http = require('http');
     var dt = require('./helloModule');
@@ -259,6 +264,7 @@ maps/sets
 Explain and demonstrate how es2015 supports modules (import and export) similar to what is offered by NodeJS.
 1. export = opretter js modul til at exportere funktioner eller andet fra modulet så det kan blive brugt af andre applikationer der kan importere det.
 2. import = importerer modulet til din applikation.
+-
 
     //------ myFunc.js ------
     export default function hey() {  return "hey"};
