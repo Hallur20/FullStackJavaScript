@@ -2,7 +2,7 @@
 FullStackJS_P1_ExamQuestions
 
 
-*.Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
+Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
 1. Javascript er et OO scripting sprog der har til formål at lave dynamiske html sider på en web-browser.
 2. Java er et programmerings-sprog, der gør at du kan lave programmer det kan køre på din computer/browser, mens javascript kun kører på din browser.
 3. Du skal compile java-kode med f.eks commando-prompt for at f.eks kunne se et system.out.println("hello world") i cmd, med med javascript behøver du ikke compile.
@@ -21,19 +21,24 @@ typescript
 es2015/typescript bruges på 2 måder:
 1. browseren hvor et script tag i en html fil med et source for javascript filen sættes nederst i body tag, hvilket vil gøre at man kan se resultatet på browseren (chrome, firefox, edge osv)
 2. Node hvor blandt andre mulighed du kan se resultaterne fra console.log vil printes ud på kommandoprompt vinduet, du skal bare have node.js installeret på computeren.
+
 Explain generally about node.js, and when it “makes sense” and npm, and how it “fits” into the node echo system.
 
-Node js er et javascript runtime system der fungerer sammen med side-server applikationer.
-Uden node.js er det ikke muligt at lave feks et react applikation der kræver feks node modules ved at du skriver npm install.
-Npm er et software registry i node der indeholder over 600.000 packages lavet af javascript developers.
-Node kører en javascript fil på samme måde som i en browser, men node har nogle APIs der kan bruges til backup development, http requests osv.
-Node js giver mest mening ved et real time web application, hvilket er når en klient og server kan udveksle data uden forstyrrelser (states). Det sker med websockets?.
+1. Node js er et javascript runtime system der fungerer sammen med side-server applikationer.
+2. Uden node.js er det ikke muligt at lave feks et react applikation der kræver feks node modules ved at du skriver npm install.
+3. Npm er et software registry i node der indeholder over 600.000 packages lavet af javascript developers.
+4. Node kører en javascript fil på samme måde som i en browser, men node har nogle APIs der kan bruges til backup development, http requests osv.
+5. Node js giver mest mening ved et real time web application, hvilket er når en klient og server kan udveksle data uden forstyrrelser (states). Det sker med websockets?.
+
 Explain about the Event Loop in Node.js 
-Et event loop er hvad der tilllader node.js i at fuldføre ikke-blokerende I/O operationer, hvilket er kode, der ikke blokerer for eksekveringen af koden (promises osv). Dette er rigtig godt for node.js fordi at det er single threaded.
+1. Et event loop er hvad der tilllader node.js i at fuldføre ikke-blokerende I/O operationer, hvilket er kode, der ikke blokerer for eksekveringen af koden (promises osv). Dette er rigtig godt for node.js fordi at det er single threaded.
+
 Explain (some) of the purposes with the tools Babel and WebPack, using  examples from the exercises
-Babel bliver brugt til at  transpile nyere javascript-kode om til es-2015, sådan at næsten alle browserer kan forstå koden. WebPack er en module bundler. Med webpack kan du gøre brug af nøgleordet "require" der gør sådan at du kan få lavet nogle dependencies der peger på  nogle lokale filer du har på din egen computer som feks et image.
+1. Babel bliver brugt til at  transpile nyere javascript-kode om til es-2015, sådan at næsten alle browserer kan forstå koden. WebPack er en module bundler. Med webpack kan du gøre brug af nøgleordet "require" der gør sådan at du kan få lavet nogle dependencies der peger på  nogle lokale filer du har på din egen computer som feks et image.
+
 Explain the purpose of “use strict” and also Linters, exemplified with ESLint 
-Strict gør sådan at fejle der normalt ikke ville betyde noget i javascript, vil betyde noget sådan at en fejlbesked bliver printet. Feks a = 5 vil give fejl fordi a ikke har nogen declaration (Var a = 5), man kan siger det gør koden strengere for fejle. Sådan noget som funktioner er ikke vigtigt at det er i rette rækkefølge fordi at de bliver automatiskt sat op på toppen af koden.  ESLint er et godt værktøj for at finde fejle hvori du selv kan definerer reglerne feks kan du lave en regelfil hvori du siger "no-console" hvilket gør at koden ikke skal kunne gøre brug af konsolen.7
+1. Strict gør sådan at fejle der normalt ikke ville betyde noget i javascript, vil betyde noget sådan at en fejlbesked bliver printet. Feks a = 5 vil give fejl fordi a ikke har nogen declaration (Var a = 5), man kan siger det gør koden strengere for fejle. Sådan noget som funktioner er ikke vigtigt at det er i rette rækkefølge fordi at de bliver automatiskt sat op på toppen af koden.  ESLint er et godt værktøj for at finde fejle hvori du selv kan definerer reglerne feks kan du lave en regelfil hvori du siger "no-console" hvilket gør at koden ikke skal kunne gøre brug af konsolen.
+
 Variable/function-Hoisting
 Variable hoisting:
 x = 5; // Assign 5 to x
