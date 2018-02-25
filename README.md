@@ -47,6 +47,7 @@ Variable hoisting:
     var x = 1;  // Declare x
     
 1. Eksemplet her vil virke fordi at et assignment i javascript undersøger variabler nedenfor i koden, og så hejser den variablen op til toppen, sådan at den nye assignment kommer til at virke.
+-
 
     function sup(){ return yo();}
     console.log(sup());
@@ -63,6 +64,7 @@ Simpelt eksempel på this:
     console.log(this.b());
 
 1. Her er this en genvej til a variablen og b funktionen, men man kunne også have skrevet console.log(a) og console.log(b()). I javascript har this et globalt omfangt så når man ikke er på den globale omgang men i en funktion vil this ikke virke. eksempel nedenunder. (a vil stadig være 5).
+-
 
     let a = 5;
     (function(){
@@ -71,22 +73,26 @@ Simpelt eksempel på this:
     console.log(a);
     
 2. men i java/.net har this et omfang for metoder og variabler der ikke er statiske. eksmpel (b skulle gerne være 10):
+-
 
-package thisdemo;
-    static int a = 5;
-    int b = this.a + 5;
-    public static void main(String[] args) {
-        ThisDemo td = new ThisDemo();
-        System.out.println(td.b);}
-    public int b() {return this.b;}}
+    package thisdemo;
+     static int a = 5;
+     int b = this.a + 5;
+     public static void main(String[] args) {
+         ThisDemo td = new ThisDemo();
+          System.out.println(td.b);}
+       public int b() {return this.b;}}
+    
     
 3. arrow funktioner løser alle problemer med this hvis feks et object med en konstructor fra en klasse bliver sendt ned i en funktion giver undefined (fordi assigment ikke er globalt), hvilket før var et problem i javascript fordi det hørte dårligt sammen med OO programmering som i java, men en midlertidlig løsning dengang var at sige const self = this (dette er en bid kode fra en af timerne).
+-
 
-class Person{
+
+    class Person{
     constructor(private fName:string,private lName:string){
         this.fName = fName;
     }
-sayHelloArrowFix(){
+    sayHelloArrowFix(){
         setTimeout(() =>{ //fix!
             console.log(`Hi ${this.fName}`);
         },);    
@@ -97,14 +103,15 @@ sayHelloArrowFix(){
             console.log(`Hi ${self.fName}`);
         },);    
     }
-}
-let p = new Person("Hallur", "vid Neyst");
-p.sayHelloFixSelf();
-p.sayHelloArrowFix();
+    }
+    let p = new Person("Hallur", "vid Neyst");
+    p.sayHelloFixSelf();
+    p.sayHelloArrowFix();
 
 Function Closures and the JavaScript Module Pattern
 1. Function closure generelt er udtryk for ting man kan gøre indenfor funktionens eget scope.
 2. Én funktion i javascript har mulighed for at gøre brug af både det lokale og globale omfang af variabler (kode nedenfor viser at funktionen tager imod en variabel fra det globale scope.
+-
 
     var a = 4; //variabel i det globale omfang
     (function myFunction() {
@@ -116,6 +123,7 @@ Function Closures and the JavaScript Module Pattern
 
 Immediately-Invoked Function Expressions (IIFE)
 1. én javascript funktion der eksekveres så snart den er defineret. 
+-
 
     (function(){
      var hello = "hello world"
@@ -127,6 +135,7 @@ Immediately-Invoked Function Expressions (IIFE)
 JavaScripts Prototype
 1. Prototyper i javascript har at gøre med feks map, filter reduce osv. Disse 3 er Array Prototyper som også er standard javacript obects, og én array prototype er en predefineret function der tager et callback og gør noget med callback-regelen brugeren har defineret.
 2. For at lave din egen array prototype constructor kan du gøre det på den her måde:
+-
 
     Array.prototype.myUcase = function() {
       for (i = 0; i < this.length; i++) {
@@ -138,6 +147,7 @@ JavaScripts Prototype
     console.log(a);
 
 3. den her prototype tager this[i] (det originale string-array's index) og laver indexet til et stort bogstav. Ét andet prototype eksempel er ligesom i object orienteret programmering hvori feks én person klasse har en konstruktor, så kan javascript gøre det med én function (med stort bogstav til at starte fordi det er ét object konstructor). Eksempel nedenfor:
+-
 
     function Person(first, last) {
       this.firstName = first;
@@ -148,6 +158,7 @@ JavaScripts Prototype
     
 User defined Callback Functions
 1. En callback funktion er en funktion der sættes ind i parametret af én anden funktion, der så bruges i det lokale scope for den funktion.
+-
 
     function takeName(fName, lName, callback) {
      callback(fName, lName);
