@@ -1,6 +1,17 @@
 day1 exercises links:
-
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/opg1.js">learnyounode demo1</a>
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/opg2.js">learnyounode demo2</a>
 <a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/magicCallback1.js">1) Using existing functions that takes a callback as an argument</a>
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/magicCallback2.js">2) Implement user defined functions that take callbacks as an argument</a>
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/magicCallback3.js">3) Using the Prototype property to add new functionality to existing objects</a>
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/magicCallback4.js">4) Getting really comfortable with filter and map</a>
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/testMC4.html">Getting really comfortable with filter and map (html file)</a>
+<a href="https://github.com/Hallur20/FullStackJavaScript/blob/master/fullstackExercises/reduce.js">filter, map and reduce</a>
+
+
+
+
+
 # FullStackJavaScript 
 FullStackJS_P1_ExamQuestions
 
