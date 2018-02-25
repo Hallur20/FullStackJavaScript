@@ -9,6 +9,7 @@ Explain differences between Java and JavaScript. You should include both topics 
 4. i javascript behøver man ikke at definerer hvad type en variabel er, eller hvad en metode skal returnere, men det skal man i java.
 5. Javascript kræver heller ikke at din kode bliver lavet i klasser, men det skal man i java.
 6. Javascript kører kun i én thread, mens i java kan man lave flere (typisk bruges der 4 threads i java fordi computerer nu om dage som regel har 4 kerner)
+
 Explain the two strategies for improving JavaScript: ES6 (es2015) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node and in (many different) Browsers
 es2015
 arrow funktioner - en kortere syntax end den normale javascript-funktion, med arrow funktion behøver du ikke skrive function, og hvis det er samme linje behøver du heller ikke skrive return eller lave krølleparanteser. Man behøver heller ikke binde this i feks react når der bruges arrow funktioner
