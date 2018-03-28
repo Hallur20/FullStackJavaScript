@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <a href="http://localhost:3000">log out</a>
+    <h1>hello
+        <%= user.userName %> you have successfully logged in!</h1>
+    <p>user id is:
+        <%= user._id %>
+    </p>
+    <p>task is: let a “logged-in” user add LocationBlogs
+    </p>
+    { info, pos: { longitude, latitude }, author };
+
+    <button id="coordinatesBtn">push to get current position</button>
+    <form action="/login/createPosition" method="post">
+        lon
+        <input id="lon" type="number" placeholder="readonly" readonly=true name="lon"/> lat
+        <input id="lat" type="number" placeholder="readonly" readonly=true name="lat"/> id
+        <input style="width: 15%;" type="text" placeholder="readonly" readonly=true value = "<%= user._id %>" name="id"/>
+        <input type="submit"/>
+    </form>
+    <form>
+        <span>blob:</span>
+        <input type="text" placeholder="info" />
+        <input type="number" placeholder="longitude" />
+        <input type="number" placeholder="latitude" />
+        <input type="text" placeholder="author" />
+    </form>
+    <script>
+        document.getElementById("coordinatesBtn").onclick = () => {
+            navigator.geolocation.getCurrentPosition((successfully, error) => {
+                if(error){
+                    alert("error! have you turned gps on?");
+                    return;
+                }
+                document.getElementById("lon").value = successfully.coords.longitude;
+                document.getElementById("lat").value = successfully.coords.latitude;
+            });
+
+        };
+    </script>
+</body>
+
+</html>

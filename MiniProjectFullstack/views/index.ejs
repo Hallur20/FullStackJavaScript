@@ -18,17 +18,33 @@
             border: solid 0.5px;
             background-color: #E0FFFF
         }
+        #cheatSheet{
+            background-color: yellow;
+            width: 20%;
+        }
     </style>
 </head>
 
 <body>
+    <% 
+    if(status !== ""){
+        %><h1 style="color: green;">user created: <%= status.userName %></h1><%
+    }
+    %>
     <p>made by: Hallur við Neyst</p>
+    <div id="cheatSheet">
+        <h5>cheat sheet:</h5>
+        <% for(var i = 0; i < users.length; i++){
+             %>
+            <p>username: <%= users[i].userName %>, password: <%= users[i].password %></p>
+            <%}  %>
+    </div>
     <div class="notLoggedIn">
         <div class="loginUser">
             <h1>hello from ejs ;) please log in</h1>
-            <form>
-                <input type="text" placeholder="username" />
-                <input type="text" placeholder="password" />
+            <form action="/login" method="post">
+                <input type="text" placeholder="username" name="uName" />
+                <input type="password" placeholder="password" name="psw" />
                 </br>
                 </br>
                 <input type="submit" value="login" />
@@ -38,7 +54,7 @@
         </br>
         <div class="createUser">
             <h1>or create new user</h1>
-            <form action="/post" method="post">
+            <form action="/create" method="post">
                 <input type="text" placeholder="first name" name="fName" />
                 </br>
                 <input type="text" placeholder="last name" name="lName" />
